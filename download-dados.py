@@ -22,7 +22,7 @@ for url in urls:
         z = zipfile.ZipFile(io.BytesIO(response.content))
         # queremos apenas o arquivo csv, e nao queremos o sub judice
         nome_planilha = [name for name in z.namelist() if os.path.splitext(name)[-1] == '.csv' and not 'sub_jud' in name][0]
-        with z.open(nome_planilha) as p, open('dados/%s' % nome_planilha, 'w') as f:
+        with z.open(nome_planilha) as p, open('dados/%s' % os.path.basename(nome_planilha), 'w') as f:
             print u'Gravando arquivo %s' % nome_planilha
             f.write(p.read())
     else:
