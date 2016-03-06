@@ -25,22 +25,22 @@ São exemplos de perguntas que o projeto pretende responder:
 
 # Instalação
 
-1. Clonar o repositório
+1 - Clonar o repositório
 
 `git clone https://github.com/augusto-herrmann/fatias.git`
 
-2. Para usar os scripts em Python, criar e ativar um [ambiente virtual](https://virtualenv.readthedocs.org/en/latest/)
+2 - Para usar os scripts em Python, criar e ativar um [ambiente virtual](https://virtualenv.readthedocs.org/en/latest/)
 
 ```
 cd fatias
 virtualenv --no-site-packages pyenv
 source pyenv/bin/activate
 ```
-3. Instalar as dependências do script que deseja usar. Use o comando
+3 - Instalar as dependências do script que deseja usar. Use o comando
 
 `pip install -r requirements.txt`
 
-4. Para executar o script e baixar os dados, use
+4 - Para executar o script e baixar os dados, use
 
 `servidores-download-dados.py` (aproximadamente 500 MB)
 
