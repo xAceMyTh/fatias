@@ -7,9 +7,10 @@ from couchbase.exceptions import KeyExistsError
 bucket = Bucket('couchbase://localhost/default')
 
 csv_filenames = [filename for filename in os.listdir('dados/') if os.path.isfile(os.path.join('dados/', filename)) and filename.split('.')[-1] == 'csv']
+total = len(csv_filenames)
 
-for filename in csv_filenames:
-    print u'Processando {}...'.format(filename)
+for num, filename in enumerate(csv_filenames):
+    print u'({:d}/{:d}) Processando {}...'.format(num+1, total, filename)
     with open(os.path.join('dados/', filename)) as f:
         planilha = csv.DictReader(f, delimiter=';')
         for linha in planilha:
