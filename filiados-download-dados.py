@@ -14,9 +14,13 @@ if not os.path.exists('dados'):
     print u'Criando diretório "dados"...'
     os.mkdir('dados')
 
+if not os.path.exists('dados/filiados'):
+    print u'Criando diretório "dados/filiados"...'
+    os.mkdir('dados/filiados')
+
 for url in urls:
     filename = os.path.basename(urlparse.urlparse(url).path)
-    if os.path.exists('dados/%s.csv' % filename.split('.')[0]):
+    if os.path.exists('dados/filiados/%s.csv' % filename.split('.')[0]):
         print u'Pulando arquivo existente: %s' % filename
         continue
     print u'Baixando a url %s' % url
@@ -31,7 +35,7 @@ for url in urls:
             continue
         path_planilha = planilhas[0] # le a primeira planilha
         nome_planilha = os.path.basename(path_planilha)
-        with z.open(path_planilha) as p, open('dados/%s' % nome_planilha, 'w') as f:
+        with z.open(path_planilha) as p, open('dados/filiados/%s' % nome_planilha, 'w') as f:
             print u'Gravando arquivo %s' % nome_planilha
             f.write(p.read())
     else:
