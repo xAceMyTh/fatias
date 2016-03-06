@@ -9,6 +9,15 @@ Projeto desenvolvido no Open Data Day 2016 Brasília.
 Fornecer um ambiente para análise de dados e visualizações para a distribuição
 dos cargos de confiança no poder executivo federal entre os partidos políticos.
 
+São exemplos de perguntas que o projeto pretende responder:
+
+* Quais são os partidos cujos filiados mais ocupam cargos de confiança no poder
+  executivo federal, e com quais percentuais?
+* Quais órgãos públicos são predominantemente loteados para quais partidos?
+* Como estão distribuídos entre os filiados a partidos políticos os Jetons
+  (remuneração percebida em razão da participação em conselhos de administração
+  e fiscal de empresas controladas pela União)?
+
 # Fontes de dados
 
 * Dataset dos [servidores do executivo federal](http://dados.gov.br/dataset/servidores-do-executivo-federal)
