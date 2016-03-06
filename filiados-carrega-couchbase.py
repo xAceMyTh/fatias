@@ -6,12 +6,12 @@ from couchbase.exceptions import KeyExistsError
 
 bucket = Bucket('couchbase://localhost/default')
 
-csv_filenames = [filename for filename in os.listdir('dados/filiados') if os.path.isfile(os.path.join('dados/filiados', filename)) and filename.split('.')[-1] == 'csv']
+csv_filenames = [filename for filename in os.listdir('dados/filiados/') if os.path.isfile(os.path.join('dados/filiados/', filename)) and filename.split('.')[-1] == 'csv']
 total = len(csv_filenames)
 
 for num, filename in enumerate(csv_filenames):
     print u'({:d}/{:d}) Processando {}...'.format(num+1, total, filename)
-    with open(os.path.join('dados/filiados', filename)) as f:
+    with open(os.path.join('dados/filiados/', filename)) as f:
         planilha = csv.DictReader(f, delimiter=';')
         for linha in planilha:
             # definicao da chave
