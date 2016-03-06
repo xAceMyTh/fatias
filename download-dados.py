@@ -16,14 +16,17 @@ if not os.path.exists('dados'):
 
 for url in urls:
     filename = os.path.basename(urlparse.urlparse(url).path)
+    if os.path.exists('dados/%s.csv' % filename.split('.')[0]):
+        print u'Pulando arquivo existente: %s' % filename
+        continue
     print u'Baixando a url %s' % url
-    response = requests.get(url)
+    response = requests.get(url, stream=True)
     if response.ok:
         z = zipfile.ZipFile(io.BytesIO(response.content))
         # queremos apenas o arquivo csv, e nao queremos o sub judice
         path_planilha = [name for name in z.namelist() if os.path.splitext(name)[-1] == '.csv' and not 'sub_jud' in name][0]
-        nome_planilha = os.path.basename(nome_planilha)
-        with z.open(nome_planilha) as p, open('dados/%s' % nome_planilha, 'w') as f:
+        nome_planilha = os.path.basename(path_planilha)
+        with z.open(path_planilha) as p, open('dados/%s' % nome_planilha, 'w') as f:
             print u'Gravando arquivo %s' % nome_planilha
             f.write(p.read())
     else:
