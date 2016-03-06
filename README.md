@@ -42,5 +42,10 @@ source pyenv/bin/activate
 
 4. Para executar o script e baixar os dados, use
 
-`python download-dados.py`
+`servidores-download-dados.py` (aproximadamente 500 MB)
+
+e
+
+`filiados-download-dados.py` (aproximadamente 4 GB)
+
 
