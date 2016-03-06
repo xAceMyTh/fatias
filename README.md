@@ -4,6 +4,16 @@ Fatias - cruzamentos de dados de servidores do executivo federal e filiados a pa
 
 Projeto desenvolvido no Open Data Day 2016 Brasília.
 
+# Objetivo
+
+Fornecer um ambiente para análise de dados e visualizações para a distribuição
+dos cargos de confiança no poder executivo federal entre os partidos políticos.
+
+# Fontes de dados
+
+* Dataset dos [servidores do executivo federal](http://dados.gov.br/dataset/servidores-do-executivo-federal)
+* Dataset dos [filiados a partidos políticos](http://dados.gov.br/dataset/filiados-partidos-politicos)
+
 # Instalação
 
 1. Clonar o repositório
