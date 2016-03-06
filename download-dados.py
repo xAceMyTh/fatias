@@ -24,7 +24,12 @@ for url in urls:
     if response.ok:
         z = zipfile.ZipFile(io.BytesIO(response.content))
         # queremos apenas o arquivo csv, e nao queremos o sub judice
-        path_planilha = [name for name in z.namelist() if os.path.splitext(name)[-1] == '.csv' and not 'sub_jud' in name][0]
+        planilhas = [name for name in z.namelist() if os.path.splitext(name)[-1] == '.csv' and not 'sub_jud' in name]
+        if not planilhas:
+            print u'Aviso: O arquivo %s não contém planilhas.' % filename
+            # pula para a proxima url
+            continue
+        path_planilha = planilhas[0] # le a primeira planilha
         nome_planilha = os.path.basename(path_planilha)
         with z.open(path_planilha) as p, open('dados/%s' % nome_planilha, 'w') as f:
             print u'Gravando arquivo %s' % nome_planilha
