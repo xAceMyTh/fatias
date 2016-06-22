@@ -4,7 +4,7 @@ import csv
 from couchbase.bucket import Bucket
 from couchbase.exceptions import KeyExistsError
 
-bucket = Bucket('couchbase://localhost/default')
+bucket = Bucket('couchbase://localhost/filiados')
 
 csv_filenames = [filename for filename in os.listdir('dados/filiados/') if os.path.isfile(os.path.join('dados/filiados/', filename)) and filename.split('.')[-1] == 'csv']
 total = len(csv_filenames)
