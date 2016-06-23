@@ -5,7 +5,7 @@ import csv
 from couchbase.bucket import Bucket
 from couchbase.exceptions import KeyExistsError
 
-bucket = Bucket('couchbase://localhost/default')
+bucket = Bucket('couchbase://localhost/servidorescomissionados')
 
 # procura o nome da planilha de cadastro
 cadastro_filename = [filename for filename in os.listdir('dados/servidores/') if os.path.isfile(os.path.join('dados/servidores/', filename)) and filename.split('.')[-1] == 'csv' and 'Cadastro' in filename][0]
@@ -23,8 +23,10 @@ with open(os.path.join('dados/servidores/', cadastro_filename)) as f:
         # a pedido e outra via judicial)
         chave = "-".join((
             linha['CPF'].decode('iso-8859-1'),
+            linha['NOME'].decode('iso-8859-1'),
             linha['MATRICULA'].decode('iso-8859-1'),
             linha['FUNCAO'].decode('iso-8859-1'),
+            linha['DATA_INGRESSO_ORGAO'].decode('iso-8859-1'),
             linha['DATA_INGRESSO_CARGOFUNCAO'].decode('iso-8859-1'),
         ))
         dados = {
@@ -43,6 +45,7 @@ with open(os.path.join('dados/servidores/', cadastro_filename)) as f:
             'tipo_vinculo': linha['TIPO_VINCULO'],
             'situacao_vinculo': linha['SITUACAO_VINCULO'],
             'regime_juridico': linha['REGIME_JURIDICO'],
+            'data_ingresso_orgao': linha['DATA_INGRESSO_CARGOFUNCAO'],
             'data_ingresso_cargofuncao': linha['DATA_INGRESSO_CARGOFUNCAO'],
             'data_nomeacao_cargofuncao': linha['DATA_NOMEACAO_CARGOFUNCAO'],
         }
