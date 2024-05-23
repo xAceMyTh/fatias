@@ -21,8 +21,8 @@ for url in reversed(urls):
         break
 
 if not os.path.exists('dados'):
-    print u'Criando diretório "dados"...'
-    os.mkdir('dados')
+    print (u'Criando diretório "dados"...'
+    os.mkdir('dados'))
 
 if not os.path.exists('dados/servidores'):
     print u'Criando diretório "dados/servidores"...'
